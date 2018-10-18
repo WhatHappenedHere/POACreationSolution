@@ -87,7 +87,7 @@ namespace TestApp
                     try
                     {
                         fileHandler.writeIntoUserFile(concatenateString(), dataStream);
-                        fileHandler.writeIntoBase(concatenateString(), dataStream);
+                        fileHandler.writeIntoBase(concatenateString(), dataStream,saveFileDialogPOA.FileName);
                     }
                     catch (Exception exception) { }
                     finally
