@@ -101,13 +101,13 @@ namespace TestApp.DataHandler
                     for (int j = 0; j < 4; j++)
                         refactoredData[j] = stringData[j].Replace("[symbol]", "^");
 
-                    streamBaseWriter.Write(refactoredData[1]);
-                    amount += refactoredData[3];
-                    if(i!= baseDataString.Count() - 2)
-                    {
-                        streamBaseWriter.Write("☼");
-                        amount += "☼";
-                    }
+                    streamBaseWriter.Write(refactoredData[1] + "☼" + refactoredData[3]);
+                    //amount += refactoredData[3];
+                    //if(i!= baseDataString.Count() - 2)
+                    //{
+                    //    streamBaseWriter.Write("☼");
+                    //    amount += "☼";
+                    //}
                 }
                 
                     streamBaseWriter.WriteLine("\n"+amount);

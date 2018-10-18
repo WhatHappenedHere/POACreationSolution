@@ -19,9 +19,14 @@ namespace TestApp
         public mainForm()
         {
             InitializeComponent();
+            string[] loadedBaseData = poaFileHandler.loadBaseData();
+            fillTable(loadedBaseData);
         }
 
-        
+        public void fillTable(string[] tableData)
+        {
+           
+        }
 
         private void вихідToolStripMenuItem_Click(object sender, EventArgs e) => Close();
 
