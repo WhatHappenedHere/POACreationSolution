@@ -14,7 +14,7 @@ namespace TestApp
 {
     public partial class mainForm : Form
     {
-        POAFileHandler poaFileReader = new POAFileHandler();
+        POAFileHandler poaFileHandler = new POAFileHandler();
         
         public mainForm()
         {
@@ -35,10 +35,10 @@ namespace TestApp
                 try
                 {
                     DocumentForm documentForm = new DocumentForm();
-                    string[] tableData = poaFileReader.readFromDialog(openFileDialogPOA);
+                    string[] tableData = poaFileHandler.readFromDialog(openFileDialogPOA);
                     POAElements poaElements = new POAElements(tableData[0]);
 
-                    documentForm = poaFileReader.poaReading(tableData,poaElements);
+                    documentForm = poaFileHandler.poaReading(tableData,poaElements);
                     documentForm.Show();
                     
                 }
