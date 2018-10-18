@@ -54,7 +54,7 @@ namespace TestApp
             }
         }
 
-        private string concatenateString()
+        public string concatenateString()
         {
             string textForFile = dtpDateOfIssue.Text + "☼" + dtpExpirationDate.Text +
                             "☼" + tbDocumentNumber.Text + "☼" + dtpDocumentDate.Text + "☼" + tbRecipient.Text + "☼" +
@@ -76,39 +76,29 @@ namespace TestApp
 
         private void button1_Click(object sender, EventArgs e)
         {
+            POAFileHandler fileHandler = new POAFileHandler();
             saveFileDialogPOA.Filter = "poa files (*.poa)|*.poa|All files (*.*)|*.*";
             saveFileDialogPOA.Title = "Зберегти як";
-            Stream dataStream;
             if(saveFileDialogPOA.ShowDialog() == DialogResult.OK)
             {
-                if((dataStream = saveFileDialogPOA.OpenFile())!=null)
+                Stream dataStream;
+                if ((dataStream = saveFileDialogPOA.OpenFile())!=null)
                 {
-                    StreamWriter streamWriter = new StreamWriter(dataStream);
-                    StreamWriter streamBaseWriter = new StreamWriter("./DataBaseImitation.txt",true);
-                    string textForFile;
-
-                    //baseStream = ; 
                     try
                     {
-                        textForFile = concatenateString();
-                        streamWriter.Write(textForFile);
-                        streamBaseWriter.WriteLine(textForFile+"\n----------------------------------------");
-                        
+                        fileHandler.writeIntoUserFile(concatenateString(), dataStream);
+                        fileHandler.writeIntoBase(concatenateString(), dataStream);
                     }
-                    catch(Exception exception)
-                    {
-                        MessageBox.Show("Помилка запису файла!" +
-                                    "Текст помилки: " + exception.Message, "Помилка", MessageBoxButtons.OK,
-                                    MessageBoxIcon.Error);
-                    }
+                    catch (Exception exception) { }
                     finally
                     {
-                        streamBaseWriter.Close();
-                        streamWriter.Close();
                         dataStream.Close();
                     }
                 }
+                
             }
+
+            
         }
 
         private void btFillTable_Click(object sender, EventArgs e)

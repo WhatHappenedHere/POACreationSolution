@@ -59,14 +59,5 @@ namespace TestApp.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на .
-        /// </summary>
-        internal static string DataBaseImitation {
-            get {
-                return ResourceManager.GetString("DataBaseImitation", resourceCulture);
-            }
-        }
     }
 }

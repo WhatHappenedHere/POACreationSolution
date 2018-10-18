@@ -28,14 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btSave = new System.Windows.Forms.Button();
             this.gpM2Type = new System.Windows.Forms.GroupBox();
-            this.saveFileDialogPOA = new System.Windows.Forms.SaveFileDialog();
-            this.dgvPOAData = new System.Windows.Forms.DataGridView();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.lbOrderHint = new System.Windows.Forms.Label();
             this.tbOrder = new System.Windows.Forms.TextBox();
@@ -69,33 +67,35 @@
             this.lbExpirationDate = new System.Windows.Forms.Label();
             this.dtpDateOfIssue = new System.Windows.Forms.DateTimePicker();
             this.lbDateOfIssue = new System.Windows.Forms.Label();
-            this.lbTableDescription = new System.Windows.Forms.Label();
+            this.btDeleteSelectedRow = new System.Windows.Forms.Button();
             this.pnlTableData = new System.Windows.Forms.Panel();
+            this.btFillTable = new System.Windows.Forms.Button();
             this.tbAmount = new System.Windows.Forms.TextBox();
             this.lbAmount = new System.Windows.Forms.Label();
             this.tbMeasurementUnit = new System.Windows.Forms.TextBox();
             this.lbMeasurementUnit = new System.Windows.Forms.Label();
             this.tbType = new System.Windows.Forms.TextBox();
             this.lbType = new System.Windows.Forms.Label();
-            this.btFillTable = new System.Windows.Forms.Button();
+            this.lbTableDescription = new System.Windows.Forms.Label();
+            this.dgvPOAData = new System.Windows.Forms.DataGridView();
             this.columnNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnMeasurementUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btDeleteSelectedRow = new System.Windows.Forms.Button();
+            this.saveFileDialogPOA = new System.Windows.Forms.SaveFileDialog();
             this.gpM2Type.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPOAData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.pnlTableData.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPOAData)).BeginInit();
             this.SuspendLayout();
             // 
             // btSave
             // 
             this.btSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btSave.Location = new System.Drawing.Point(355, 436);
+            this.btSave.Location = new System.Drawing.Point(353, 434);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(168, 22);
             this.btSave.TabIndex = 1;
@@ -114,27 +114,9 @@
             this.gpM2Type.TabStop = false;
             this.gpM2Type.Text = "Форма № М-2";
             // 
-            // saveFileDialogPOA
-            // 
-            this.saveFileDialogPOA.FileName = "new_poa";
-            // 
-            // dgvPOAData
-            // 
-            this.dgvPOAData.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvPOAData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPOAData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.columnNumber,
-            this.columnType,
-            this.columnMeasurementUnit,
-            this.columnAmount});
-            this.dgvPOAData.Location = new System.Drawing.Point(3, 187);
-            this.dgvPOAData.Name = "dgvPOAData";
-            this.dgvPOAData.Size = new System.Drawing.Size(520, 179);
-            this.dgvPOAData.TabIndex = 68;
-            // 
             // splitContainer1
             // 
+            this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(3, 16);
             this.splitContainer1.Name = "splitContainer1";
@@ -205,7 +187,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbOrder.Location = new System.Drawing.Point(132, 421);
             this.tbOrder.Name = "tbOrder";
-            this.tbOrder.Size = new System.Drawing.Size(234, 20);
+            this.tbOrder.Size = new System.Drawing.Size(232, 20);
             this.tbOrder.TabIndex = 97;
             // 
             // lbOrder
@@ -239,7 +221,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbProvider.Location = new System.Drawing.Point(132, 373);
             this.tbProvider.Name = "tbProvider";
-            this.tbProvider.Size = new System.Drawing.Size(234, 20);
+            this.tbProvider.Size = new System.Drawing.Size(232, 20);
             this.tbProvider.TabIndex = 94;
             // 
             // lbProvider
@@ -273,7 +255,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbIssuedByOrganization.Location = new System.Drawing.Point(86, 325);
             this.tbIssuedByOrganization.Name = "tbIssuedByOrganization";
-            this.tbIssuedByOrganization.Size = new System.Drawing.Size(280, 20);
+            this.tbIssuedByOrganization.Size = new System.Drawing.Size(278, 20);
             this.tbIssuedByOrganization.TabIndex = 91;
             // 
             // lbIssuedByOrganization
@@ -291,7 +273,7 @@
             // 
             this.tbPersonDocumentDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbPersonDocumentDate.Location = new System.Drawing.Point(269, 299);
+            this.tbPersonDocumentDate.Location = new System.Drawing.Point(267, 299);
             this.tbPersonDocumentDate.Name = "tbPersonDocumentDate";
             this.tbPersonDocumentDate.Size = new System.Drawing.Size(97, 20);
             this.tbPersonDocumentDate.TabIndex = 89;
@@ -301,7 +283,7 @@
             this.lbPersonDocumentDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbPersonDocumentDate.AutoSize = true;
-            this.lbPersonDocumentDate.Location = new System.Drawing.Point(242, 302);
+            this.lbPersonDocumentDate.Location = new System.Drawing.Point(240, 302);
             this.lbPersonDocumentDate.Name = "lbPersonDocumentDate";
             this.lbPersonDocumentDate.Size = new System.Drawing.Size(21, 13);
             this.lbPersonDocumentDate.TabIndex = 88;
@@ -311,7 +293,7 @@
             // 
             this.tbPersonDocumentNumber.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbPersonDocumentNumber.Location = new System.Drawing.Point(166, 299);
+            this.tbPersonDocumentNumber.Location = new System.Drawing.Point(164, 299);
             this.tbPersonDocumentNumber.Name = "tbPersonDocumentNumber";
             this.tbPersonDocumentNumber.Size = new System.Drawing.Size(67, 20);
             this.tbPersonDocumentNumber.TabIndex = 87;
@@ -321,7 +303,7 @@
             this.lbPersonDocumentNumber.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbPersonDocumentNumber.AutoSize = true;
-            this.lbPersonDocumentNumber.Location = new System.Drawing.Point(125, 302);
+            this.lbPersonDocumentNumber.Location = new System.Drawing.Point(123, 302);
             this.lbPersonDocumentNumber.Name = "lbPersonDocumentNumber";
             this.lbPersonDocumentNumber.Size = new System.Drawing.Size(39, 13);
             this.lbPersonDocumentNumber.TabIndex = 86;
@@ -331,7 +313,7 @@
             // 
             this.tbSeries.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbSeries.Location = new System.Drawing.Point(72, 299);
+            this.tbSeries.Location = new System.Drawing.Point(70, 299);
             this.tbSeries.Name = "tbSeries";
             this.tbSeries.Size = new System.Drawing.Size(47, 20);
             this.tbSeries.TabIndex = 85;
@@ -341,7 +323,7 @@
             this.lbSeries.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbSeries.AutoSize = true;
-            this.lbSeries.Location = new System.Drawing.Point(31, 302);
+            this.lbSeries.Location = new System.Drawing.Point(29, 302);
             this.lbSeries.Name = "lbSeries";
             this.lbSeries.Size = new System.Drawing.Size(33, 13);
             this.lbSeries.TabIndex = 84;
@@ -370,7 +352,7 @@
             "паспорт"});
             this.cbDocumentType.Location = new System.Drawing.Point(218, 272);
             this.cbDocumentType.Name = "cbDocumentType";
-            this.cbDocumentType.Size = new System.Drawing.Size(148, 21);
+            this.cbDocumentType.Size = new System.Drawing.Size(146, 21);
             this.cbDocumentType.TabIndex = 82;
             // 
             // lbDocumentType
@@ -391,7 +373,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbIssuedByPerson.Location = new System.Drawing.Point(99, 219);
             this.tbIssuedByPerson.Name = "tbIssuedByPerson";
-            this.tbIssuedByPerson.Size = new System.Drawing.Size(267, 20);
+            this.tbIssuedByPerson.Size = new System.Drawing.Size(265, 20);
             this.tbIssuedByPerson.TabIndex = 80;
             // 
             // lbIssuedByPerson
@@ -409,7 +391,7 @@
             // 
             this.dtpDocumentDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtpDocumentDate.Location = new System.Drawing.Point(166, 112);
+            this.dtpDocumentDate.Location = new System.Drawing.Point(164, 112);
             this.dtpDocumentDate.Name = "dtpDocumentDate";
             this.dtpDocumentDate.Size = new System.Drawing.Size(200, 20);
             this.dtpDocumentDate.TabIndex = 78;
@@ -432,7 +414,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbPayer.Location = new System.Drawing.Point(99, 184);
             this.tbPayer.Name = "tbPayer";
-            this.tbPayer.Size = new System.Drawing.Size(267, 20);
+            this.tbPayer.Size = new System.Drawing.Size(265, 20);
             this.tbPayer.TabIndex = 76;
             // 
             // lbPayer
@@ -453,7 +435,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbRecipient.Location = new System.Drawing.Point(99, 149);
             this.tbRecipient.Name = "tbRecipient";
-            this.tbRecipient.Size = new System.Drawing.Size(267, 20);
+            this.tbRecipient.Size = new System.Drawing.Size(265, 20);
             this.tbRecipient.TabIndex = 74;
             // 
             // lbRecipient
@@ -471,7 +453,7 @@
             // 
             this.tbDocumentNumber.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbDocumentNumber.Location = new System.Drawing.Point(166, 76);
+            this.tbDocumentNumber.Location = new System.Drawing.Point(164, 76);
             this.tbDocumentNumber.Name = "tbDocumentNumber";
             this.tbDocumentNumber.Size = new System.Drawing.Size(200, 20);
             this.tbDocumentNumber.TabIndex = 72;
@@ -491,7 +473,7 @@
             // 
             this.dtpExpirationDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtpExpirationDate.Location = new System.Drawing.Point(166, 40);
+            this.dtpExpirationDate.Location = new System.Drawing.Point(164, 40);
             this.dtpExpirationDate.Name = "dtpExpirationDate";
             this.dtpExpirationDate.Size = new System.Drawing.Size(200, 20);
             this.dtpExpirationDate.TabIndex = 70;
@@ -511,7 +493,7 @@
             // 
             this.dtpDateOfIssue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtpDateOfIssue.Location = new System.Drawing.Point(166, 3);
+            this.dtpDateOfIssue.Location = new System.Drawing.Point(164, 3);
             this.dtpDateOfIssue.Name = "dtpDateOfIssue";
             this.dtpDateOfIssue.Size = new System.Drawing.Size(200, 20);
             this.dtpDateOfIssue.TabIndex = 68;
@@ -527,14 +509,15 @@
             this.lbDateOfIssue.TabIndex = 67;
             this.lbDateOfIssue.Text = "Дата видачі";
             // 
-            // lbTableDescription
+            // btDeleteSelectedRow
             // 
-            this.lbTableDescription.AutoSize = true;
-            this.lbTableDescription.Location = new System.Drawing.Point(14, 6);
-            this.lbTableDescription.Name = "lbTableDescription";
-            this.lbTableDescription.Size = new System.Drawing.Size(225, 13);
-            this.lbTableDescription.TabIndex = 69;
-            this.lbTableDescription.Text = "Перелік цінностей, які належить отримати:";
+            this.btDeleteSelectedRow.Location = new System.Drawing.Point(17, 376);
+            this.btDeleteSelectedRow.Name = "btDeleteSelectedRow";
+            this.btDeleteSelectedRow.Size = new System.Drawing.Size(165, 23);
+            this.btDeleteSelectedRow.TabIndex = 71;
+            this.btDeleteSelectedRow.Text = "Видалити виділений рядок";
+            this.btDeleteSelectedRow.UseVisualStyleBackColor = true;
+            this.btDeleteSelectedRow.Click += new System.EventHandler(this.btDeleteSelectedRow_Click);
             // 
             // pnlTableData
             // 
@@ -549,8 +532,19 @@
             this.pnlTableData.Controls.Add(this.lbType);
             this.pnlTableData.Location = new System.Drawing.Point(17, 40);
             this.pnlTableData.Name = "pnlTableData";
-            this.pnlTableData.Size = new System.Drawing.Size(494, 116);
+            this.pnlTableData.Size = new System.Drawing.Size(492, 116);
             this.pnlTableData.TabIndex = 70;
+            // 
+            // btFillTable
+            // 
+            this.btFillTable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btFillTable.Location = new System.Drawing.Point(394, 43);
+            this.btFillTable.Name = "btFillTable";
+            this.btFillTable.Size = new System.Drawing.Size(95, 23);
+            this.btFillTable.TabIndex = 87;
+            this.btFillTable.Text = "Додати";
+            this.btFillTable.UseVisualStyleBackColor = true;
+            this.btFillTable.Click += new System.EventHandler(this.btFillTable_Click);
             // 
             // tbAmount
             // 
@@ -558,7 +552,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbAmount.Location = new System.Drawing.Point(190, 81);
             this.tbAmount.Name = "tbAmount";
-            this.tbAmount.Size = new System.Drawing.Size(200, 20);
+            this.tbAmount.Size = new System.Drawing.Size(198, 20);
             this.tbAmount.TabIndex = 86;
             // 
             // lbAmount
@@ -578,7 +572,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbMeasurementUnit.Location = new System.Drawing.Point(190, 45);
             this.tbMeasurementUnit.Name = "tbMeasurementUnit";
-            this.tbMeasurementUnit.Size = new System.Drawing.Size(200, 20);
+            this.tbMeasurementUnit.Size = new System.Drawing.Size(198, 20);
             this.tbMeasurementUnit.TabIndex = 84;
             // 
             // lbMeasurementUnit
@@ -598,7 +592,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbType.Location = new System.Drawing.Point(190, 9);
             this.tbType.Name = "tbType";
-            this.tbType.Size = new System.Drawing.Size(200, 20);
+            this.tbType.Size = new System.Drawing.Size(198, 20);
             this.tbType.TabIndex = 82;
             // 
             // lbType
@@ -612,60 +606,67 @@
             this.lbType.TabIndex = 81;
             this.lbType.Text = "Найменування цінностей:";
             // 
-            // btFillTable
+            // lbTableDescription
             // 
-            this.btFillTable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btFillTable.Location = new System.Drawing.Point(396, 43);
-            this.btFillTable.Name = "btFillTable";
-            this.btFillTable.Size = new System.Drawing.Size(95, 23);
-            this.btFillTable.TabIndex = 87;
-            this.btFillTable.Text = "Додати";
-            this.btFillTable.UseVisualStyleBackColor = true;
-            this.btFillTable.Click += new System.EventHandler(this.btFillTable_Click);
+            this.lbTableDescription.AutoSize = true;
+            this.lbTableDescription.Location = new System.Drawing.Point(14, 6);
+            this.lbTableDescription.Name = "lbTableDescription";
+            this.lbTableDescription.Size = new System.Drawing.Size(225, 13);
+            this.lbTableDescription.TabIndex = 69;
+            this.lbTableDescription.Text = "Перелік цінностей, які належить отримати:";
+            // 
+            // dgvPOAData
+            // 
+            this.dgvPOAData.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvPOAData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPOAData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.columnNumber,
+            this.columnType,
+            this.columnMeasurementUnit,
+            this.columnAmount});
+            this.dgvPOAData.Location = new System.Drawing.Point(3, 187);
+            this.dgvPOAData.Name = "dgvPOAData";
+            this.dgvPOAData.Size = new System.Drawing.Size(518, 179);
+            this.dgvPOAData.TabIndex = 68;
             // 
             // columnNumber
             // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.Format = "N0";
-            dataGridViewCellStyle9.NullValue = null;
-            this.columnNumber.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Format = "N0";
+            dataGridViewCellStyle1.NullValue = null;
+            this.columnNumber.DefaultCellStyle = dataGridViewCellStyle1;
             this.columnNumber.HeaderText = "№п/п";
             this.columnNumber.Name = "columnNumber";
             this.columnNumber.ReadOnly = true;
             // 
             // columnType
             // 
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.columnType.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.columnType.DefaultCellStyle = dataGridViewCellStyle2;
             this.columnType.HeaderText = "Найменування цінностей";
             this.columnType.Name = "columnType";
             this.columnType.ReadOnly = true;
             // 
             // columnMeasurementUnit
             // 
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.columnMeasurementUnit.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.columnMeasurementUnit.DefaultCellStyle = dataGridViewCellStyle3;
             this.columnMeasurementUnit.HeaderText = "Одиниця виміру";
             this.columnMeasurementUnit.Name = "columnMeasurementUnit";
             this.columnMeasurementUnit.ReadOnly = true;
             // 
             // columnAmount
             // 
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.columnAmount.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.columnAmount.DefaultCellStyle = dataGridViewCellStyle4;
             this.columnAmount.HeaderText = "Кількість (прописом)";
             this.columnAmount.Name = "columnAmount";
             this.columnAmount.ReadOnly = true;
             // 
-            // btDeleteSelectedRow
+            // saveFileDialogPOA
             // 
-            this.btDeleteSelectedRow.Location = new System.Drawing.Point(17, 376);
-            this.btDeleteSelectedRow.Name = "btDeleteSelectedRow";
-            this.btDeleteSelectedRow.Size = new System.Drawing.Size(165, 23);
-            this.btDeleteSelectedRow.TabIndex = 71;
-            this.btDeleteSelectedRow.Text = "Видалити виділений рядок";
-            this.btDeleteSelectedRow.UseVisualStyleBackColor = true;
-            this.btDeleteSelectedRow.Click += new System.EventHandler(this.btDeleteSelectedRow_Click);
+            this.saveFileDialogPOA.FileName = "new_poa";
             // 
             // DocumentForm
             // 
@@ -676,7 +677,6 @@
             this.Name = "DocumentForm";
             this.Text = "Power of attorney";
             this.gpM2Type.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPOAData)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -685,6 +685,7 @@
             this.splitContainer1.ResumeLayout(false);
             this.pnlTableData.ResumeLayout(false);
             this.pnlTableData.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPOAData)).EndInit();
             this.ResumeLayout(false);
 
         }

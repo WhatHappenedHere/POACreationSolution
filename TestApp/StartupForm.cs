@@ -14,18 +14,14 @@ namespace TestApp
 {
     public partial class mainForm : Form
     {
-        POAFileReader poaFileReader = new POAFileReader();
+        POAFileHandler poaFileReader = new POAFileHandler();
         
         public mainForm()
         {
-            InitializeComponent();            
+            InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Close();
-
-        }
+        
 
         private void вихідToolStripMenuItem_Click(object sender, EventArgs e) => Close();
 
@@ -39,8 +35,9 @@ namespace TestApp
                 try
                 {
                     DocumentForm documentForm = new DocumentForm();
-                    string[] tableData = poaFileReader.readTable(openFileDialogPOA);
+                    string[] tableData = poaFileReader.readFromDialog(openFileDialogPOA);
                     POAElements poaElements = new POAElements(tableData[0]);
+
                     documentForm = poaFileReader.poaReading(tableData,poaElements);
                     documentForm.Show();
                     
@@ -59,6 +56,13 @@ namespace TestApp
         {
             DocumentForm documentForm = new DocumentForm();
             documentForm.Show();
+
+        }
+
+        private void dgvTemp_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+            int poeNumber = (int)dgvTemp[0, e.RowIndex].Value;
 
         }
     }

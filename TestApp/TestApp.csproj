@@ -47,7 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataHandler\POAElements.cs" />
-    <Compile Include="DataHandler\POAFileReader.cs" />
+    <Compile Include="DataHandler\POAFileHandler.cs" />
     <Compile Include="DataHandler\DocumentForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,9 +119,6 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="DataHandler\DataBaseImitation.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
