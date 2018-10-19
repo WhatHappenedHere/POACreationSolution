@@ -42,7 +42,7 @@ namespace TestApp
             for (int i = 0; i < tableData.Count-1; i++)
             {
                 products = poaFileHandler.divideBySymbol(tableData[i].GetValue(1).ToString());
-                DateTime dateTime = DateTime.Parse(tableData[i].GetValue(4).ToString());//Convert.ToDateTime(tableData[i].GetValue(4).ToString());
+                DateTime dateTime = DateTime.Parse(tableData[i].GetValue(4).ToString());
 
                 for (int j = 0; j < products.Length / 2; j++)
                 {
@@ -207,6 +207,11 @@ namespace TestApp
                                 "Текст помилки: " + exception.Message, "Помилка", MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
             }
+        }
+
+        private void видалитиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dgvTemp.Rows.RemoveAt(dgvTemp.SelectedCells[0].RowIndex);
         }
     }
 }
