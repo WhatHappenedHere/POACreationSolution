@@ -41,14 +41,6 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dgvComplited = new System.Windows.Forms.DataGridView();
             this.оновитиТаблицюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.columnNumberComplited = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pathString = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnProductsComplited = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnAmountComplited = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnComplitedDocumentNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnDateOfIssueComplited = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnExpirationDateComplited = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnPath = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnProducts = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,6 +48,13 @@
             this.columnDateOfIssue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnExpirationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnNumberComplited = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnProductsComplited = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnAmountComplited = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnComplitedDocumentNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnDateOfIssueComplited = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnExpirationDateComplited = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnPath = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mnStrip.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -171,7 +170,6 @@
             this.dgvComplited.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvComplited.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.columnNumberComplited,
-            this.pathString,
             this.columnProductsComplited,
             this.columnAmountComplited,
             this.columnComplitedDocumentNumber,
@@ -194,56 +192,6 @@
             this.оновитиТаблицюToolStripMenuItem.Size = new System.Drawing.Size(119, 20);
             this.оновитиТаблицюToolStripMenuItem.Text = "Оновити таблицю";
             this.оновитиТаблицюToolStripMenuItem.Click += new System.EventHandler(this.оновитиТаблицюToolStripMenuItem_Click);
-            // 
-            // columnNumberComplited
-            // 
-            this.columnNumberComplited.HeaderText = "№ п/п";
-            this.columnNumberComplited.Name = "columnNumberComplited";
-            this.columnNumberComplited.ReadOnly = true;
-            // 
-            // pathString
-            // 
-            this.pathString.HeaderText = "Місце знаходження";
-            this.pathString.Name = "pathString";
-            this.pathString.ReadOnly = true;
-            this.pathString.Visible = false;
-            // 
-            // columnProductsComplited
-            // 
-            this.columnProductsComplited.HeaderText = "ТМЦ";
-            this.columnProductsComplited.Name = "columnProductsComplited";
-            this.columnProductsComplited.ReadOnly = true;
-            // 
-            // columnAmountComplited
-            // 
-            this.columnAmountComplited.HeaderText = "Кількість";
-            this.columnAmountComplited.Name = "columnAmountComplited";
-            this.columnAmountComplited.ReadOnly = true;
-            // 
-            // columnComplitedDocumentNumber
-            // 
-            this.columnComplitedDocumentNumber.HeaderText = "№ довіреності";
-            this.columnComplitedDocumentNumber.Name = "columnComplitedDocumentNumber";
-            this.columnComplitedDocumentNumber.ReadOnly = true;
-            // 
-            // columnDateOfIssueComplited
-            // 
-            this.columnDateOfIssueComplited.HeaderText = "Дата видачі";
-            this.columnDateOfIssueComplited.Name = "columnDateOfIssueComplited";
-            this.columnDateOfIssueComplited.ReadOnly = true;
-            // 
-            // columnExpirationDateComplited
-            // 
-            this.columnExpirationDateComplited.HeaderText = "Дійсна до";
-            this.columnExpirationDateComplited.Name = "columnExpirationDateComplited";
-            this.columnExpirationDateComplited.ReadOnly = true;
-            // 
-            // columnPath
-            // 
-            this.columnPath.HeaderText = "Місце знаходження";
-            this.columnPath.Name = "columnPath";
-            this.columnPath.ReadOnly = true;
-            this.columnPath.Visible = false;
             // 
             // columnNumber
             // 
@@ -288,6 +236,49 @@
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
             this.dataGridViewTextBoxColumn1.Visible = false;
             // 
+            // columnNumberComplited
+            // 
+            this.columnNumberComplited.HeaderText = "№ п/п";
+            this.columnNumberComplited.Name = "columnNumberComplited";
+            this.columnNumberComplited.ReadOnly = true;
+            // 
+            // columnProductsComplited
+            // 
+            this.columnProductsComplited.HeaderText = "ТМЦ";
+            this.columnProductsComplited.Name = "columnProductsComplited";
+            this.columnProductsComplited.ReadOnly = true;
+            // 
+            // columnAmountComplited
+            // 
+            this.columnAmountComplited.HeaderText = "Кількість";
+            this.columnAmountComplited.Name = "columnAmountComplited";
+            this.columnAmountComplited.ReadOnly = true;
+            // 
+            // columnComplitedDocumentNumber
+            // 
+            this.columnComplitedDocumentNumber.HeaderText = "№ довіреності";
+            this.columnComplitedDocumentNumber.Name = "columnComplitedDocumentNumber";
+            this.columnComplitedDocumentNumber.ReadOnly = true;
+            // 
+            // columnDateOfIssueComplited
+            // 
+            this.columnDateOfIssueComplited.HeaderText = "Дата видачі";
+            this.columnDateOfIssueComplited.Name = "columnDateOfIssueComplited";
+            this.columnDateOfIssueComplited.ReadOnly = true;
+            // 
+            // columnExpirationDateComplited
+            // 
+            this.columnExpirationDateComplited.HeaderText = "Дійсна до";
+            this.columnExpirationDateComplited.Name = "columnExpirationDateComplited";
+            this.columnExpirationDateComplited.ReadOnly = true;
+            // 
+            // columnPath
+            // 
+            this.columnPath.HeaderText = "Місце знаходження";
+            this.columnPath.Name = "columnPath";
+            this.columnPath.ReadOnly = true;
+            this.columnPath.Visible = false;
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -323,14 +314,6 @@
         private System.Windows.Forms.DataGridView dgvTemp;
         private System.Windows.Forms.DataGridView dgvComplited;
         private System.Windows.Forms.ToolStripMenuItem оновитиТаблицюToolStripMenuItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn columnNumberComplited;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pathString;
-        private System.Windows.Forms.DataGridViewTextBoxColumn columnProductsComplited;
-        private System.Windows.Forms.DataGridViewTextBoxColumn columnAmountComplited;
-        private System.Windows.Forms.DataGridViewTextBoxColumn columnComplitedDocumentNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn columnDateOfIssueComplited;
-        private System.Windows.Forms.DataGridViewTextBoxColumn columnExpirationDateComplited;
-        private System.Windows.Forms.DataGridViewTextBoxColumn columnPath;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnProducts;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnAmount;
@@ -338,6 +321,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn columnDateOfIssue;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnExpirationDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnNumberComplited;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnProductsComplited;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnAmountComplited;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnComplitedDocumentNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnDateOfIssueComplited;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnExpirationDateComplited;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnPath;
     }
 }
 

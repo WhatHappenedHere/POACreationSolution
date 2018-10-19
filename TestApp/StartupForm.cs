@@ -42,19 +42,21 @@ namespace TestApp
             for (int i = 0; i < tableData.Count-1; i++)
             {
                 products = poaFileHandler.divideBySymbol(tableData[i].GetValue(1).ToString());
-                DateTime dateTime = Convert.ToDateTime(tableData[i].GetValue(4).ToString());
+                DateTime dateTime = DateTime.Parse(tableData[i].GetValue(4).ToString());//Convert.ToDateTime(tableData[i].GetValue(4).ToString());
 
                 for (int j = 0; j < products.Length / 2; j++)
-                    if (DateTime.Today.CompareTo(dateTime) < 0)
+                {
+                    if (DateTime.Now.CompareTo(dateTime) > 0)
                     {
                         dgvComplited.Rows.Add(i + 1, products[j * 2], products[j * 2 + 1],
                         tableData[i].GetValue(2).ToString(), tableData[i].GetValue(3).ToString(),
-                        tableData[i].GetValue(4).ToString(),tableData[i].GetValue(0).ToString());
+                        tableData[i].GetValue(4).ToString(), tableData[i].GetValue(0).ToString());
                     }
                     else
-                        dgvTemp.Rows.Add(i+1, products[j * 2], products[j * 2 + 1],
-                        tableData[i].GetValue(2).ToString(), tableData[i].GetValue(3).ToString(), 
+                        dgvTemp.Rows.Add(i + 1, products[j * 2], products[j * 2 + 1],
+                        tableData[i].GetValue(2).ToString(), tableData[i].GetValue(3).ToString(),
                         tableData[i].GetValue(4).ToString(), tableData[i].GetValue(0).ToString());
+                }
             }
         }
 
@@ -187,7 +189,7 @@ namespace TestApp
 
         private void dgvComplited_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.RowIndex < 0 || dgvTemp[columnDocumentNumber.Index, e.RowIndex].Value == null) return;
+            if (e.RowIndex < 0 || dgvComplited[columnComplitedDocumentNumber.Index, e.RowIndex].Value == null) return;
             try
             {
                 DocumentForm documentForm = new DocumentForm();
