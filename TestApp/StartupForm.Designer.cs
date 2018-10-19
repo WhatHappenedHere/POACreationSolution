@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mnStrip = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.створитиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -129,6 +130,8 @@
             // 
             // dgvTemp
             // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvTemp.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvTemp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTemp.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.columnNumber,
@@ -144,6 +147,8 @@
             this.dgvTemp.Size = new System.Drawing.Size(682, 227);
             this.dgvTemp.TabIndex = 0;
             this.dgvTemp.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTemp_CellDoubleClick);
+            this.dgvTemp.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvTemp_CellFormatting);
+            this.dgvTemp.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvTemp_CellPainting);
             // 
             // columnNumber
             // 

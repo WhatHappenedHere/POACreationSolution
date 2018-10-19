@@ -19,6 +19,7 @@ namespace TestApp
         public mainForm()
         {
             InitializeComponent();
+            dgvTemp.AutoGenerateColumns = false;
             string[] loadedBaseData = poaFileHandler.loadBaseData();
             Dictionary<int, string[]> loadedPOAs = new Dictionary<int, string[]>();
             if (loadedBaseData != null)
@@ -78,11 +79,48 @@ namespace TestApp
 
         }
 
+        bool IsTheSameCellValue(int column, int row,DataGridView dataGridView)
+        {
+            DataGridViewCell cell1 = dataGridView[column, row];
+            DataGridViewCell cell2 = dataGridView[column, row - 1];
+            if (cell1.Value == null || cell2.Value == null)
+            {
+                return false;
+            }
+            return cell1.Value.ToString() == cell2.Value.ToString();
+        }
+
         private void dgvTemp_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
             int poeNumber = (int)dgvTemp[0, e.RowIndex].Value;
 
+        }
+
+        private void dgvTemp_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            e.AdvancedBorderStyle.Bottom = DataGridViewAdvancedCellBorderStyle.None;
+            if (e.RowIndex < 1 || e.ColumnIndex < 0)
+                return;
+            if (IsTheSameCellValue(e.ColumnIndex, e.RowIndex,dgvTemp))
+            {
+                e.AdvancedBorderStyle.Top = DataGridViewAdvancedCellBorderStyle.None;
+            }
+            else
+            {
+                e.AdvancedBorderStyle.Top = dgvTemp.AdvancedCellBorderStyle.Top;
+            }
+        }
+
+        private void dgvTemp_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.RowIndex == 0)
+                return;
+            if (IsTheSameCellValue(e.ColumnIndex, e.RowIndex,dgvTemp))
+            {
+                e.Value = "";
+                e.FormattingApplied = true;
+            }
         }
     }
 }
