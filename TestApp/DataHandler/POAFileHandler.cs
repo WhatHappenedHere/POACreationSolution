@@ -20,23 +20,52 @@ namespace TestApp.DataHandler
 
         public string[] loadBaseData()
         {
-            StreamReader streamReader = new StreamReader("./DataBaseImitation.txt");
-            try
+            StreamWriter streamCheck = new StreamWriter("./DataBaseImitation.txt",true);
+            var fi = new FileInfo("./DataBaseImitation.txt");
+            if (fi.Length == 0)
             {
-                string[] tableDataString = streamReader.ReadToEnd().Split('œ');
-                return tableDataString;
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show("Помилка завантаження інформації про " +
-                                "створенні довіреності!", exception.Message, 
-                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                streamCheck.Close();
                 return null;
             }
-            finally
+            else
             {
-                streamReader.Close();               
+                streamCheck.Close();
+                StreamReader streamReader = new StreamReader("./DataBaseImitation.txt");
+                try
+                {
+                    string[] tableDataString = streamReader.ReadToEnd().Split('œ');
+                    return tableDataString;
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show("Помилка завантаження інформації про " +
+                                    "створенні довіреності!", exception.Message,
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return null;
+                }
+                finally { streamReader.Close(); }
+            }   
+                
+        }
+
+        public Dictionary<int,string[]> dividePOAs(string[] loadedData)
+        {
+            Dictionary<int, string[]> dividedData = new Dictionary<int, string[]>();
+            for(int i=0;i<loadedData.Length;i++)
+            {
+                dividedData.Add(i, divideByNewLine(loadedData[i]));
             }
+            return dividedData;
+        }
+
+        public string[] divideByNewLine(string text)
+        {
+            return text.Split('\n');
+        }
+
+        public string[] divideBySymbol(string text)
+        {
+            return text.Split('☼');
         }
 
         public string[] readFileData(Stream fileStream)
@@ -45,7 +74,7 @@ namespace TestApp.DataHandler
                 StreamReader streamReader = new StreamReader(fileStream);
                 try
                 {                    
-                    string[] tableDataString = streamReader.ReadToEnd().Split('\n');
+                    string[] tableDataString = divideByNewLine(streamReader.ReadToEnd());
                     return tableDataString;
                 }
                 catch (Exception exception)
@@ -93,7 +122,7 @@ namespace TestApp.DataHandler
                 POAElements poaElements = new POAElements(baseDataString[0]);
 
                 string[] stringData;
-                string amount = "";
+                //string amount = "";
                 string[] refactoredData = new string[4];
                 for (int i = 1; i < baseDataString.Count() - 1; i++)
                 {
@@ -103,14 +132,24 @@ namespace TestApp.DataHandler
 
                     streamBaseWriter.Write(refactoredData[1] + "☼" + refactoredData[3]);
                     //amount += refactoredData[3];
-                    //if(i!= baseDataString.Count() - 2)
-                    //{
-                    //    streamBaseWriter.Write("☼");
-                    //    amount += "☼";
-                    //}
-                }
-                
-                    streamBaseWriter.WriteLine("\n"+amount);
+                    if (i != baseDataString.Count() - 2)
+                    {
+                        streamBaseWriter.Write("☼");
+                    }
+                        //    amount += "☼";
+                        //}
+
+                        //streamBaseWriter.Write(refactoredData[1]);
+                        //amount += refactoredData[3];
+                        //if(i!= baseDataString.Count() - 2)
+                        //{
+                        //    streamBaseWriter.Write("☼");
+                        //    amount += "☼";
+                        //}
+
+                    }
+
+                streamBaseWriter.Write("\n");
                 
 
                 streamBaseWriter.WriteLine(poaElements.documentNumber); 

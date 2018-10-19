@@ -20,12 +20,26 @@ namespace TestApp
         {
             InitializeComponent();
             string[] loadedBaseData = poaFileHandler.loadBaseData();
-            fillTable(loadedBaseData);
+            Dictionary<int, string[]> loadedPOAs = new Dictionary<int, string[]>();
+            if (loadedBaseData != null)
+            {
+                loadedPOAs = poaFileHandler.dividePOAs(loadedBaseData);
+                fillTable(loadedPOAs);
+            }
         }
 
-        public void fillTable(string[] tableData)
+        public void fillTable(Dictionary<int, string[]> tableData)
         {
-           
+            string[] products;
+            for (int i = 0; i < tableData.Count-1; i++)
+            {
+                products = poaFileHandler.divideBySymbol(tableData[i].GetValue(1).ToString());
+
+                for (int j = 0; j < products.Length / 2; j++)
+                    dgvTemp.Rows.Add(i+1, products[j * 2], products[j * 2 + 1],
+                        tableData[i].GetValue(2).ToString(), tableData[i].GetValue(3).ToString(), 
+                        tableData[i].GetValue(4).ToString());
+            }
         }
 
         private void вихідToolStripMenuItem_Click(object sender, EventArgs e) => Close();
