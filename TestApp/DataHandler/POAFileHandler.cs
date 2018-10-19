@@ -91,6 +91,29 @@ namespace TestApp.DataHandler
             
         }
 
+        public string[] readFileData(string fileStream)
+        {
+
+            StreamReader streamReader = new StreamReader(fileStream);
+            try
+            {
+                string[] tableDataString = divideByNewLine(streamReader.ReadToEnd());
+                return tableDataString;
+            }
+            catch (Exception exception)
+            {
+
+                MessageBox.Show("Помилка читання файлу!", exception.Message, MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                streamReader.Close();
+            }
+
+        }
+
         public void writeIntoUserFile(string textForFile,Stream dataStream)
         {
             StreamWriter streamWriter = new StreamWriter(dataStream);

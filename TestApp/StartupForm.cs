@@ -49,12 +49,12 @@ namespace TestApp
                     {
                         dgvComplited.Rows.Add(i + 1, products[j * 2], products[j * 2 + 1],
                         tableData[i].GetValue(2).ToString(), tableData[i].GetValue(3).ToString(),
-                        tableData[i].GetValue(4).ToString());
+                        tableData[i].GetValue(4).ToString(),tableData[i].GetValue(0).ToString());
                     }
                     else
                         dgvTemp.Rows.Add(i+1, products[j * 2], products[j * 2 + 1],
                         tableData[i].GetValue(2).ToString(), tableData[i].GetValue(3).ToString(), 
-                        tableData[i].GetValue(4).ToString());
+                        tableData[i].GetValue(4).ToString(), tableData[i].GetValue(0).ToString());
             }
         }
 
@@ -107,9 +107,23 @@ namespace TestApp
 
         private void dgvTemp_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0) return;
-            int poeNumber = (int)dgvTemp[0, e.RowIndex].Value;
+            if (e.RowIndex < 0|| dgvTemp[columnDocumentNumber.Index, e.RowIndex].Value==null) return;
+            try
+            {
+                DocumentForm documentForm = new DocumentForm();
+                string[] tableData = poaFileHandler.readFileData(dgvTemp[6,e.RowIndex].Value.ToString());
+                POAElements poaElements = new POAElements(tableData[0]);
 
+                documentForm = poaFileHandler.poaReading(tableData, poaElements);
+                documentForm.Show();
+
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("Неможливо відкрити файл!\n" +
+                                "Текст помилки: " + exception.Message, "Помилка", MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
         }
 
         private void dgvTemp_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -141,7 +155,55 @@ namespace TestApp
         private void оновитиТаблицюToolStripMenuItem_Click(object sender, EventArgs e)
         {
             dgvTemp.Rows.Clear();
+            dgvComplited.Rows.Clear();
             fillMainTable();
+        }
+
+        private void dgvComplited_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            e.AdvancedBorderStyle.Bottom = DataGridViewAdvancedCellBorderStyle.None;
+            if (e.RowIndex < 1 || e.ColumnIndex < 0)
+                return;
+            if (IsTheSameCellValue(e.ColumnIndex, e.RowIndex, dgvComplited))
+            {
+                e.AdvancedBorderStyle.Top = DataGridViewAdvancedCellBorderStyle.None;
+            }
+            else
+            {
+                e.AdvancedBorderStyle.Top = dgvComplited.AdvancedCellBorderStyle.Top;
+            }
+        }
+
+        private void dgvComplited_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.RowIndex == 0)
+                return;
+            if (IsTheSameCellValue(e.ColumnIndex, e.RowIndex, dgvComplited))
+            {
+                e.Value = "";
+                e.FormattingApplied = true;
+            }
+        }
+
+        private void dgvComplited_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex < 0 || dgvTemp[columnDocumentNumber.Index, e.RowIndex].Value == null) return;
+            try
+            {
+                DocumentForm documentForm = new DocumentForm();
+                string[] tableData = poaFileHandler.readFileData(dgvComplited[6, e.RowIndex].Value.ToString());
+                POAElements poaElements = new POAElements(tableData[0]);
+
+                documentForm = poaFileHandler.poaReading(tableData, poaElements);
+                documentForm.Show();
+
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("Неможливо відкрити файл!\n" +
+                                "Текст помилки: " + exception.Message, "Помилка", MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
         }
     }
 }
