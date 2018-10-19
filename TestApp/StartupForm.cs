@@ -15,13 +15,18 @@ namespace TestApp
     public partial class mainForm : Form
     {
         POAFileHandler poaFileHandler = new POAFileHandler();
-        
+        Dictionary<int, string[]> loadedPOAs = new Dictionary<int, string[]>();
         public mainForm()
         {
             InitializeComponent();
             dgvTemp.AutoGenerateColumns = false;
+            fillMainTable();
+        }
+
+        public void fillMainTable()
+        {
             string[] loadedBaseData = poaFileHandler.loadBaseData();
-            Dictionary<int, string[]> loadedPOAs = new Dictionary<int, string[]>();
+            
             if (loadedBaseData != null)
             {
                 loadedPOAs = poaFileHandler.dividePOAs(loadedBaseData);
@@ -32,12 +37,22 @@ namespace TestApp
         public void fillTable(Dictionary<int, string[]> tableData)
         {
             string[] products;
+            
+            
             for (int i = 0; i < tableData.Count-1; i++)
             {
                 products = poaFileHandler.divideBySymbol(tableData[i].GetValue(1).ToString());
+                DateTime dateTime = Convert.ToDateTime(tableData[i].GetValue(4).ToString());
 
                 for (int j = 0; j < products.Length / 2; j++)
-                    dgvTemp.Rows.Add(i+1, products[j * 2], products[j * 2 + 1],
+                    if (DateTime.Today.CompareTo(dateTime) < 0)
+                    {
+                        dgvComplited.Rows.Add(i + 1, products[j * 2], products[j * 2 + 1],
+                        tableData[i].GetValue(2).ToString(), tableData[i].GetValue(3).ToString(),
+                        tableData[i].GetValue(4).ToString());
+                    }
+                    else
+                        dgvTemp.Rows.Add(i+1, products[j * 2], products[j * 2 + 1],
                         tableData[i].GetValue(2).ToString(), tableData[i].GetValue(3).ToString(), 
                         tableData[i].GetValue(4).ToString());
             }
@@ -121,6 +136,12 @@ namespace TestApp
                 e.Value = "";
                 e.FormattingApplied = true;
             }
+        }
+
+        private void оновитиТаблицюToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dgvTemp.Rows.Clear();
+            fillMainTable();
         }
     }
 }

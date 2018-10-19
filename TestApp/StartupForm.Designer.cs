@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mnStrip = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.створитиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,13 +46,13 @@
             this.columnExpirationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dgvComplited = new System.Windows.Forms.DataGridView();
+            this.оновитиТаблицюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.columnNumberComplited = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnProductsComplited = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnAmountComplited = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnComplitedDocumentNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnDateOfIssueComplited = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnExpirationDateComplited = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnEditComplited = new System.Windows.Forms.DataGridViewButtonColumn();
             this.mnStrip.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -64,7 +64,8 @@
             // mnStrip
             // 
             this.mnStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.файлToolStripMenuItem});
+            this.файлToolStripMenuItem,
+            this.оновитиТаблицюToolStripMenuItem});
             this.mnStrip.Location = new System.Drawing.Point(0, 0);
             this.mnStrip.Name = "mnStrip";
             this.mnStrip.Size = new System.Drawing.Size(696, 24);
@@ -130,8 +131,8 @@
             // 
             // dgvTemp
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvTemp.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            this.dgvTemp.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvTemp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTemp.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.columnNumber,
@@ -206,14 +207,20 @@
             this.columnAmountComplited,
             this.columnComplitedDocumentNumber,
             this.columnDateOfIssueComplited,
-            this.columnExpirationDateComplited,
-            this.columnEditComplited});
+            this.columnExpirationDateComplited});
             this.dgvComplited.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvComplited.Location = new System.Drawing.Point(3, 3);
             this.dgvComplited.Name = "dgvComplited";
             this.dgvComplited.ReadOnly = true;
             this.dgvComplited.Size = new System.Drawing.Size(682, 227);
             this.dgvComplited.TabIndex = 1;
+            // 
+            // оновитиТаблицюToolStripMenuItem
+            // 
+            this.оновитиТаблицюToolStripMenuItem.Name = "оновитиТаблицюToolStripMenuItem";
+            this.оновитиТаблицюToolStripMenuItem.Size = new System.Drawing.Size(119, 20);
+            this.оновитиТаблицюToolStripMenuItem.Text = "Оновити таблицю";
+            this.оновитиТаблицюToolStripMenuItem.Click += new System.EventHandler(this.оновитиТаблицюToolStripMenuItem_Click);
             // 
             // columnNumberComplited
             // 
@@ -251,12 +258,6 @@
             this.columnExpirationDateComplited.Name = "columnExpirationDateComplited";
             this.columnExpirationDateComplited.ReadOnly = true;
             // 
-            // columnEditComplited
-            // 
-            this.columnEditComplited.HeaderText = "Редагувати";
-            this.columnEditComplited.Name = "columnEditComplited";
-            this.columnEditComplited.ReadOnly = true;
-            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -291,19 +292,19 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.DataGridView dgvTemp;
         private System.Windows.Forms.DataGridView dgvComplited;
-        private System.Windows.Forms.DataGridViewTextBoxColumn columnNumberComplited;
-        private System.Windows.Forms.DataGridViewTextBoxColumn columnProductsComplited;
-        private System.Windows.Forms.DataGridViewTextBoxColumn columnAmountComplited;
-        private System.Windows.Forms.DataGridViewTextBoxColumn columnComplitedDocumentNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn columnDateOfIssueComplited;
-        private System.Windows.Forms.DataGridViewTextBoxColumn columnExpirationDateComplited;
-        private System.Windows.Forms.DataGridViewButtonColumn columnEditComplited;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnProducts;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnDocumentNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnDateOfIssue;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnExpirationDate;
+        private System.Windows.Forms.ToolStripMenuItem оновитиТаблицюToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnNumberComplited;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnProductsComplited;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnAmountComplited;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnComplitedDocumentNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnDateOfIssueComplited;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnExpirationDateComplited;
     }
 }
 
