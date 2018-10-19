@@ -87,9 +87,14 @@ namespace TestApp
                     try
                     {
                         fileHandler.writeIntoUserFile(concatenateString(), dataStream);
-                        fileHandler.writeIntoBase(concatenateString(), dataStream,saveFileDialogPOA.FileName);
+                        fileHandler.writeIntoBase(concatenateString(), saveFileDialogPOA.FileName);
                     }
-                    catch (Exception exception) { }
+                    catch (Exception exception)
+                    {
+                        MessageBox.Show("Помилка збереження даних довіреності!" +
+                                        "Текст помилки: " + exception.Message, "Помилка", MessageBoxButtons.OK,
+                                        MessageBoxIcon.Error);
+                    }
                     finally
                     {
                         dataStream.Close();

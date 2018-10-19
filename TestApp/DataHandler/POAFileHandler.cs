@@ -133,7 +133,7 @@ namespace TestApp.DataHandler
             }
         }
 
-        public void writeIntoBase(string textForFile,Stream dataStream,string fileName)
+        public void writeIntoBase(string textForFile, string fileName)//Stream dataStream,string fileName)
         {
             
             StreamWriter streamBaseWriter = new StreamWriter("./DataBaseImitation.txt", true);
@@ -145,7 +145,6 @@ namespace TestApp.DataHandler
                 POAElements poaElements = new POAElements(baseDataString[0]);
 
                 string[] stringData;
-                //string amount = "";
                 string[] refactoredData = new string[4];
                 for (int i = 1; i < baseDataString.Count() - 1; i++)
                 {
@@ -154,23 +153,11 @@ namespace TestApp.DataHandler
                         refactoredData[j] = stringData[j].Replace("[symbol]", "^");
 
                     streamBaseWriter.Write(refactoredData[1] + "☼" + refactoredData[3]);
-                    //amount += refactoredData[3];
                     if (i != baseDataString.Count() - 2)
                     {
                         streamBaseWriter.Write("☼");
                     }
-                        //    amount += "☼";
-                        //}
-
-                        //streamBaseWriter.Write(refactoredData[1]);
-                        //amount += refactoredData[3];
-                        //if(i!= baseDataString.Count() - 2)
-                        //{
-                        //    streamBaseWriter.Write("☼");
-                        //    amount += "☼";
-                        //}
-
-                    }
+                }
 
                 streamBaseWriter.Write("\n");
                 

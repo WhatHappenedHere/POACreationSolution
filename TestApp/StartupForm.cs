@@ -73,10 +73,11 @@ namespace TestApp
                 {
                     DocumentForm documentForm = new DocumentForm();
                     string[] tableData = poaFileHandler.readFromDialog(openFileDialogPOA);
-                    POAElements poaElements = new POAElements(tableData[0]);
-
+                    POAElements poaElements = new POAElements(tableData[0]);                    
                     documentForm = poaFileHandler.poaReading(tableData,poaElements);
                     documentForm.Show();
+                    poaFileHandler.writeIntoBase(documentForm.concatenateString(),openFileDialogPOA.FileName);
+                    
                     
                 }
                 catch (Exception exception)
